@@ -1,0 +1,25 @@
+function Dijkstra(Graph, source):
+	 for each vertex v in Graph:
+	     dist[v] = infinity
+	     previous[v] = undefined
+	 dist[source] = 0
+	 Q = set of all nodes in Graph
+	 while Q is not empty:
+	       u = node in Q with smallest dist[]
+	       remove u from Q
+	       for each neighbor v of u:
+	       	   alt = dist[u] + dist_between(u, v)
+		   if alt < dist[v]
+		      dist[v] = alt
+		      previous[v] = u
+	 return previous[]
+
+===Summary===
+1.All nodes start with distance infinite. node 0 (starting node) set to distance 0
+2.Marking the distance of the starting node as permanent and all other distances as temporary
+3. setting of starting node as active
+4. Calculation of the temporary distances of all  neighbor nodes of the active node by summing up its distance with the weights of the edges.
+5. If such a calculated distance of a node is smaller than the current one, update the distance and set the current node to its antecessor. This step is also called update and is Dijkstra's central idea.
+6. Setting of the node with minimal temporary distance as active. Mark its distance as permanent.
+7. Repeating of steps 4 to 7 until there aren't any nodes left with a permanent distance which neighbours still have temporary distances.
+

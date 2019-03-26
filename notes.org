@@ -1,0 +1,19 @@
+* Calling Convention
+** Caller
+save eax, ecx, edx
+pass parameters right to left
+call subroutine
+restore stack
+restore eax, ecx, edx
+
+** Callee
+push ebp
+mov ebp, esp
+set up local vars -> set up stack (e.g sub $4, %esp) make enough room for 1 4 byte local variable
+save ebx, edi, esi
+perform routine
+leave return val in eax
+restore ebx, edi, esi
+remove local variables -> reset stack (movl %ebp, %esp)
+restore ebp (pop %ebp)
+ret
